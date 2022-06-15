@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use 'styles/colors.scss';
+@use 'styles/typography.scss';
+@use 'styles/breakpoints.scss';
+
+.badge-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.5rem;
+
+  border-radius: 6px;
+
+  background: colors.$green;
+  color: colors.$white;
+
+  max-width: 250px;
+}

@@ -1,23 +1,11 @@
 import './styles/global.scss';
 
-const App: React.FC = () => {
+import { Product } from 'views/Product';
+
+export const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Product />
+    </>
   );
 };
-
-export default App;
