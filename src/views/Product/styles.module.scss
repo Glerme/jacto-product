@@ -6,12 +6,10 @@
 .landing-page-container {
   display: grid;
 
-  background-color: colors.$background;
-
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
-  @include breakpoints.and-up(lg) {
+  @include breakpoints.and-up(md) {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
 }
@@ -23,6 +21,7 @@
 
   padding: 2rem;
 
+  background-color: #f3c4ac;
   background-image: url('../../assets/left.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -46,12 +45,6 @@
 
   margin-bottom: 2rem;
 
-  h1 {
-    font-size: map.get(typography.$sizes, 'display');
-    font-weight: map.get(typography.$weights, 'display');
-    color: colors.$primary;
-  }
-
   & > div {
     font-size: map.get(typography.$sizes, 'b3');
     font-weight: map.get(typography.$weights, 'b3');
@@ -59,5 +52,61 @@
     span {
       color: colors.$primary;
     }
+  }
+}
+
+.description-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  & > p {
+    font-size: map.get(typography.$sizes, 'b4');
+    font-weight: map.get(typography.$weights, 'b4');
+  }
+
+  & > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    gap: 1rem;
+    font-size: map.get(typography.$sizes, 'b1');
+    font-weight: map.get(typography.$weights, 'b1');
+
+    > li {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.manuals-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+
+  & > p {
+    font-size: map.get(typography.$sizes, 'b4');
+    font-weight: map.get(typography.$weights, 'b4');
+  }
+
+  & > div {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+
+    @include breakpoints.and-up(lg) {
+      grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+    }
+  }
+}
+
+.shopping-container {
+  display: grid;
+  gap: 1rem;
+
+  @include breakpoints.and-up(md) {
   }
 }

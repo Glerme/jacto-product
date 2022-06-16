@@ -1,11 +1,22 @@
 import image1 from 'assets/image1.png';
+
+import { FiDollarSign, FiDownload, FiShoppingCart } from 'react-icons/fi';
+
 import { Badge } from 'components/Badge';
+import { Button } from 'components/Button';
+import { Title } from 'components/Title';
 
 import styles from './styles.module.scss';
+import classNames from 'classnames';
 
 export const Product: React.FC = () => {
   return (
-    <main className={styles['landing-page-container']}>
+    <main
+      className={classNames(
+        styles['landing-page-container'],
+        'centralized-container',
+      )}
+    >
       <section className={styles['product-container-img']}>
         <img src={image1} alt="" />
       </section>
@@ -14,7 +25,7 @@ export const Product: React.FC = () => {
         <div className={styles['title-container']}>
           <Badge>MAIS VENDIDOS</Badge>
 
-          <h1>Jacto PJH</h1>
+          <Title color="primary">Jacto PJH</Title>
 
           <div>
             <p>
@@ -23,7 +34,7 @@ export const Product: React.FC = () => {
           </div>
         </div>
 
-        <article>
+        <article className={styles['description-article']}>
           <p>Descrição: </p>
           <ul>
             <li>
@@ -38,19 +49,31 @@ export const Product: React.FC = () => {
           </ul>
         </article>
 
-        <section>
+        <section className={styles['manuals-container']}>
           <p>Manuais:</p>
 
           <div>
-            <button>peças</button>
-            <button>ficha</button>
-            <button>manual</button>
+            <Button
+              background="secondary"
+              icon={() => <FiDownload size={24} />}
+              isOutlined
+            >
+              Manual do operador
+            </Button>
+            <Button icon={() => <FiDownload size={24} />}>Ficha Técnica</Button>
+            <Button icon={() => <FiDownload size={24} />}>
+              Lista de Peças
+            </Button>
           </div>
         </section>
 
-        <section>
-          <button>Solicitar Proposta</button>
-          <button>COMPRAR AGORA</button>
+        <section className={styles['shopping-container']}>
+          <Button icon={() => <FiDollarSign size={24} />}>
+            Solicitar Proposta
+          </Button>
+          <Button icon={() => <FiShoppingCart size={24} />}>
+            COMPRAR AGORA
+          </Button>
         </section>
       </section>
     </main>
