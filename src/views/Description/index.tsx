@@ -19,7 +19,7 @@ export const Description: React.FC = () => {
 
       <section className={styles['list-cards']}>
         <div className={styles['card-container']}>
-          <div>
+          <div className={styles['card-content']}>
             <h4>Camara Metálica</h4>
             <p>Alta durabilidade e resistência.</p>
           </div>
@@ -30,7 +30,7 @@ export const Description: React.FC = () => {
         </div>
 
         <div className={styles['card-container']}>
-          <div>
+          <div className={styles['card-content']}>
             <h4>BOCAL DE ABASTECIMENTO</h4>
             <p>
               Com 140 mm de diâmetro, possibilita um abastecimento rápido e sem
@@ -44,7 +44,7 @@ export const Description: React.FC = () => {
         </div>
 
         <div className={styles['card-container']}>
-          <div>
+          <div className={styles['card-content']}>
             <h4>BASE METÁLICA COM PINTURA ANTICORROSIVA</h4>
             <p>Material de alta resistência a quedas e riscos</p>
           </div>
