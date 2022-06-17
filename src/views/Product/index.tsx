@@ -54,21 +54,31 @@ export const Product: React.FC = () => {
 
           <div>
             <Button
-              background="secondary"
+              background="primary50"
               icon={() => <FiDownload size={24} />}
-              isOutlined
             >
               Manual do operador
             </Button>
-            <Button icon={() => <FiDownload size={24} />}>Ficha Técnica</Button>
-            <Button icon={() => <FiDownload size={24} />}>
+            <Button
+              background="primary50"
+              icon={() => <FiDownload size={24} />}
+            >
+              Ficha Técnica
+            </Button>
+            <Button
+              background="primary50"
+              icon={() => <FiDownload size={24} />}
+            >
               Lista de Peças
             </Button>
           </div>
         </section>
 
         <section className={styles['shopping-container']}>
-          <Button icon={() => <FiDollarSign size={24} />}>
+          <Button
+            background="primary50"
+            icon={() => <FiDollarSign size={24} />}
+          >
             Solicitar Proposta
           </Button>
           <Button icon={() => <FiShoppingCart size={24} />}>

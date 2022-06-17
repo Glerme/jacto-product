@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './styles.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  background?: 'primary' | 'secondary';
+  background?: 'primary' | 'secondary' | 'primary50';
   isOutlined?: boolean;
   icon?: () => JSX.Element;
   children: React.ReactNode;
@@ -23,8 +23,8 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       className={classNames(
         styles['button-container'],
-        background && `btn-${background}`,
-        isOutlined && `btn-outlined-${background}`,
+        `${background ? styles[`btn-${background}`] : styles[`btn-primary`]}`,
+        `${isOutlined ? styles[`btn-outlined-${background}`] : ''}`,
       )}
       onClick={onClick}
     >

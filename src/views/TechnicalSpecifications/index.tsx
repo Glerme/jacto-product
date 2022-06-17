@@ -10,9 +10,24 @@ export const TechnicalSpecifications: React.FC = () => {
 
       <section className={styles['specifications-container-tabs']}>
         <TabList labelTabs={['Dimensões/Peso', 'Tanque', 'Bomba']}>
-          <div>a</div>
-          <div>b</div>
-          <div>c</div>
+          <div className={styles['tab-content']}>
+            <div className={styles['tab-row']}>
+              <p>Comprimento</p>
+              <p>395mm</p>
+            </div>
+
+            <div className={styles['tab-row']}>
+              <p>Comprimento</p>
+              <p>395mm</p>
+            </div>
+
+            <div className={styles['tab-row']}>
+              <p>Comprimento</p>
+              <p>395mm</p>
+            </div>
+          </div>
+          <div></div>
+          <div></div>
         </TabList>
       </section>
     </main>

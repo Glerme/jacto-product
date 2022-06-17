@@ -9,6 +9,8 @@
   width: 100%;
   height: 100%;
 
+  margin-bottom: auto;
+
   @include breakpoints.and-up(md) {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }

@@ -1,4 +1,7 @@
+import classNames from 'classnames';
 import { useState } from 'react';
+
+import styles from './styles.module.scss';
 
 interface TabListProps {
   labelTabs: string[];
@@ -10,12 +13,23 @@ export const TabList: React.FC<TabListProps> = ({ labelTabs, children }) => {
 
   return (
     <div>
-      {labelTabs.map((label, index) => (
-        <button onClick={() => setActiveTab(index)}>{label}</button>
-      ))}
+      <div className={styles['tablist-buttons-container']}>
+        {labelTabs.map((label, index) => (
+          <button
+            className={classNames(
+              styles['tablist-buttons'],
+              activeTab === index && styles['active-tab'],
+            )}
+            onClick={() => setActiveTab(index)}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
 
-      <div>
-        {labelTabs.find((_, index) => index === activeTab)} {activeTab}
+      <div className={styles['tablist-content-container']}>
+        {labelTabs.find((_, index) => index === activeTab) &&
+          children.find((_, index) => index === activeTab)}
       </div>
     </div>
   );
