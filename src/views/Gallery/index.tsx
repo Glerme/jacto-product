@@ -1,5 +1,9 @@
-import { CarouselSlide } from 'components/CarouselSlide';
+import card1 from 'assets/card1.png';
+import card2 from 'assets/card2.png';
+import card3 from 'assets/card3.png';
+
 import { Title } from 'components/Title';
+import { Carousel } from 'components/CarouselSlide';
 
 import styles from './styles.module.scss';
 
@@ -21,7 +25,17 @@ export const Gallery: React.FC = () => {
         </div>
 
         <div className={styles['carousel-container']}>
-          <CarouselSlide />
+          <Carousel>
+            <div className={styles['carousel-slide']}>
+              <img src={card1} />
+            </div>
+            <div className={styles['carousel-slide']}>
+              <img src={card2} />
+            </div>
+            <div className={styles['carousel-slide']}>
+              <img src={card3} />
+            </div>
+          </Carousel>
         </div>
       </section>
     </main>

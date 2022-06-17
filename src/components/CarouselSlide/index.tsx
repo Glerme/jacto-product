@@ -1,56 +1,68 @@
 import styles from './styles.module.scss';
 
-import card1 from 'assets/card1.png';
-import card2 from 'assets/card2.png';
-import card3 from 'assets/card3.png';
+// import { Carousel } from 'react-responsive-carousel';
 
-import { Carousel } from 'react-responsive-carousel';
+import Slider from 'react-slick';
 
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { BiRightArrow, BiLeftArrow } from 'react-icons/bi';
+import { NextArrow, PrevArrow } from './Arrows';
 
-export const CarouselSlide: React.FC = () => {
+interface CarouselProps {
+  children: React.ReactNode;
+}
+
+export const Carousel: React.FC<CarouselProps> = ({ children }) => {
+  const responsive = {
+    responsive: [
+      {
+        breakpoint: 425,
+        settings: {
+          arrows: true,
+          dots: false,
+          rows: 3,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+
+      {
+        breakpoint: 768,
+        settings: {
+          dots: true,
+          arrows: true,
+          rows: 2,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+
+      {
+        breakpoint: 1080,
+        settings: {
+          arrows: true,
+          rows: 2,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className={styles['carousel-slide-container']}>
-      <Carousel
-        infiniteLoop
-        dynamicHeight
-        statusFormatter={(current, total) => `Slide: ${current} de ${total}`}
-        renderArrowPrev={(onClickHandler, hasPrev) =>
-          hasPrev && (
-            <button
-              type="button"
-              onClick={onClickHandler}
-              className={styles['arrow-styles']}
-              style={{ left: 15 }}
-            >
-              <BiLeftArrow size={24} color={'#fcfcfc'} />
-            </button>
-          )
-        }
-        renderArrowNext={(onClickHandler, hasPrev) =>
-          hasPrev && (
-            <button
-              type="button"
-              onClick={onClickHandler}
-              className={styles['arrow-styles']}
-              style={{ right: 15 }}
-            >
-              <BiRightArrow size={24} color={'#fcfcfc'} />
-            </button>
-          )
-        }
+      <Slider
+        autoplay={true}
+        pauseOnHover={true}
+        infinite={true}
+        speed={800}
+        slidesToShow={1}
+        slidesToScroll={1}
+        nextArrow={<NextArrow />}
+        prevArrow={<PrevArrow />}
+        {...responsive}
       >
-        <div>
-          <img src={card1} />
-        </div>
-        <div>
-          <img src={card2} />
-        </div>
-        <div>
-          <img src={card3} />
-        </div>
-      </Carousel>
+        {children}
+      </Slider>
     </div>
   );
 };
