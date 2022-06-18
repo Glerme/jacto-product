@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 
 export const useFetch = (url: string, options: RequestInit = {}) => {
   const [loading, setLoading] = useState(false);
-  const [queryData, setQueryData] = useState<any>({
+  const [queryData, setQueryData] = useState<{
+    data: any;
+    errors: any;
+  }>({
     data: null,
     errors: null,
   });
 
-  const fetchData = async () => {
+  const fetchData = async (url: string, options: RequestInit = {}) => {
     try {
       setLoading(true);
 
@@ -20,6 +23,8 @@ export const useFetch = (url: string, options: RequestInit = {}) => {
         errors: null,
       });
     } catch (error) {
+      console.log(error);
+
       setQueryData({
         data: null,
         errors: error,
@@ -30,11 +35,12 @@ export const useFetch = (url: string, options: RequestInit = {}) => {
   };
 
   useEffect(() => {
-    fetchData();
-  }, [url]);
+    fetchData(url, options);
+  }, []);
 
   return {
     loading,
-    data: queryData,
+    data: queryData.data,
+    errors: queryData.errors,
   };
 };

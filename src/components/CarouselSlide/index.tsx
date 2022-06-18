@@ -24,7 +24,6 @@ export const Carousel: React.FC<CarouselProps> = ({ children }) => {
           slidesToScroll: 1,
         },
       },
-
       {
         breakpoint: 768,
         settings: {
