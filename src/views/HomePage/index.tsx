@@ -21,8 +21,6 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ product }) => {
   const { language } = useLanguage();
 
-  console.log(product);
-
   return (
     <div className={styles['landing-page-container']}>
       <section className={styles['product-container-img']}>
@@ -40,7 +38,7 @@ export const HomePage: React.FC<HomePageProps> = ({ product }) => {
 
             <div>
               <p>
-                <Translate path="Sprayer" /> |{' '}
+                <Translate path="Backpack Sprayer" /> |{' '}
                 <span>{product?.name[language]}</span>
               </p>
             </div>
@@ -66,8 +64,9 @@ export const HomePage: React.FC<HomePageProps> = ({ product }) => {
             </p>
 
             <div>
-              {product?.files?.map(file => (
+              {product?.files?.map((file, i) => (
                 <LinkButton
+                  key={i}
                   background="primary50"
                   icon={() => <FiDownload size={24} />}
                   href={file?.file[language].url}

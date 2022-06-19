@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styles from './styles.module.scss';
 
 interface TabListProps {
-  labelTabs: string[];
+  labelTabs: string[] | undefined;
   children: React.ReactNode[];
 }
 
@@ -14,7 +14,7 @@ export const TabList: React.FC<TabListProps> = ({ labelTabs, children }) => {
   return (
     <div>
       <div className={styles['tablist-buttons-container']}>
-        {labelTabs.map((label, index) => (
+        {labelTabs?.map((label, index) => (
           <button
             className={classNames(
               styles['tablist-buttons'],
@@ -28,7 +28,7 @@ export const TabList: React.FC<TabListProps> = ({ labelTabs, children }) => {
       </div>
 
       <div className={styles['tablist-content-container']}>
-        {labelTabs.find((_, index) => index === activeTab) &&
+        {labelTabs?.find((_, index) => index === activeTab) &&
           children.find((_, index) => index === activeTab)}
       </div>
     </div>

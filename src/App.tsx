@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import type { Product } from 'types/Product';
 
@@ -15,7 +15,7 @@ import { useFetch } from 'hooks/useFetch';
 export const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const { data: product, loading, errors } = useFetch<Product>('/product');
+  const { data: product, loading } = useFetch<Product>('/product');
 
   if (loading) {
     return (
@@ -40,8 +40,8 @@ export const App: React.FC = () => {
         onToggle={() => setIsMenuOpen(!isMenuOpen)}
       />
       <HomePage product={product} />
-      <Description />
-      <TechnicalSpecifications />
+      <Description product={product} />
+      <TechnicalSpecifications product={product} />
       <Gallery />
     </>
   );
