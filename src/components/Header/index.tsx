@@ -1,10 +1,10 @@
 import logo from 'assets/logo.svg';
 import classNames from 'classnames';
 
+import { FiMenu } from 'react-icons/fi';
+
 import { I18n } from 'components/I18n';
 import { Translate } from 'components/Translate';
-
-import { FiMenu } from 'react-icons/fi';
 
 import styles from './styles.module.scss';
 
@@ -36,13 +36,19 @@ export const Header: React.FC<HeaderProps> = ({ isMenuOpen, onToggle }) => {
               )}
             >
               <li>
-                <a href="#">Sobre</a>
+                <a href="#">
+                  <Translate path="About" />
+                </a>
               </li>
               <li>
-                <a href="#">Contato</a>
+                <a href="#">
+                  <Translate path="Contact" />
+                </a>
               </li>
               <li>
-                <a href="#">Produtos</a>
+                <a href="#">
+                  <Translate path="Product" />
+                </a>
               </li>
               <li>
                 <I18n />

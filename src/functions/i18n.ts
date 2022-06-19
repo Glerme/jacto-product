@@ -1,25 +1,20 @@
 import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
-const resources = {
-  en: {
-    translation: {
-      'Welcome to React': 'Welcome to React and react-i18next',
-    },
-  },
-  pt_BR: {
-    translation: {
-      'Welcome to React': 'Bem Vindo ao React e react-i18next',
-    },
-  },
-};
+import translations from 'assets/locales';
 
-i18n.use(initReactI18next).init({
-  resources,
-  lng: 'pt_BR',
-  interpolation: {
-    escapeValue: false,
-  },
-});
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources: translations,
+    fallbackLng: 'pt_BR',
+    defaultNS: 'translations',
+    lng: 'pt_BR',
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
 export default i18n;

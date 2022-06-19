@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react';
 
-export const useFetch = (url: string, options: RequestInit = {}) => {
+interface UseFetchReturn<T> {
+  data: T;
+  loading: boolean;
+  errors?: any | null;
+}
+
+export const useFetch = <T = Record<string, any>>(
+  url: string,
+  options: RequestInit = {},
+): UseFetchReturn<T> => {
   const [loading, setLoading] = useState(false);
   const [queryData, setQueryData] = useState<{
     data: any;
@@ -14,7 +23,10 @@ export const useFetch = (url: string, options: RequestInit = {}) => {
     try {
       setLoading(true);
 
-      const response = await fetch(url, options);
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}${url}`,
+        options,
+      );
 
       const json = await response.json();
 

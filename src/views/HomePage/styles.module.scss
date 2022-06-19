@@ -32,6 +32,7 @@
   img {
     object-fit: cover;
     max-width: 600px;
+    height: 100%;
   }
 }
 
@@ -67,20 +68,15 @@
     font-size: map.get(typography.$sizes, 'b4');
     font-weight: map.get(typography.$weights, 'b4');
   }
+}
 
-  & > ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: left;
-    gap: 1rem;
-    font-size: map.get(typography.$sizes, 'b1');
-    font-weight: map.get(typography.$weights, 'b1');
+.description-text {
+  display: flex;
+  flex-direction: column;
 
-    > li {
-      margin-left: 2rem;
-    }
-  }
+  gap: 1rem;
+  font-size: map.get(typography.$sizes, 'b1');
+  font-weight: map.get(typography.$weights, 'b1');
 }
 
 .manuals-container {

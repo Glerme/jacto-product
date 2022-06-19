@@ -27,8 +27,8 @@ export const I18n: React.FC = () => {
 
       <Flag
         image={EuaFlag}
-        isSelected={selectedLanguage === 'en-US'}
-        onClick={() => handleChangeLanguage('en-US')}
+        isSelected={selectedLanguage === 'en_US'}
+        onClick={() => handleChangeLanguage('en_US')}
         title={'EN-US'}
       />
     </div>

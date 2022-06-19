@@ -7,5 +7,5 @@ interface TranslationProps {
 export const Translate: React.FC<TranslationProps> = ({ path }) => {
   const { t } = useTranslation();
 
-  return <>{t(path)}</>;
+  return t(path);
 };
