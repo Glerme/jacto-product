@@ -11,5 +11,6 @@ export default {
     'Buy Now': 'Buy Now',
     'Information About the Product': 'Information About the Product',
     'Technical Specifications': 'Technical Specifications',
+    Gallery: 'Gallery',
   },
 };

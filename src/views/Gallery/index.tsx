@@ -1,23 +1,31 @@
-import card1 from 'assets/card1.png';
-import card2 from 'assets/card2.png';
-import card3 from 'assets/card3.png';
+import type { Product } from 'types/Product';
+import { useLanguage } from 'hooks/useLanguage';
 
 import { Title } from 'components/Title';
+import { Translate } from 'components/Translate';
 import { Carousel } from 'components/CarouselSlide';
 
 import styles from './styles.module.scss';
 
-export const Gallery: React.FC = () => {
+interface GalleryProps {
+  product: Product;
+}
+
+export const Gallery: React.FC<GalleryProps> = ({ product }) => {
+  const { language } = useLanguage();
+
   return (
     <main className={'centralized-container'}>
-      <Title color="secondary">Galeria</Title>
+      <Title color="secondary">
+        <Translate path="Gallery" />
+      </Title>
 
       <section className={styles['gallery-container']}>
         <div className={styles['video-container']}>
           <iframe
             className={styles['video-content']}
-            src="https://www.youtube.com/embed/YUlealKW90I"
-            title="YouTube video player"
+            src={'https://www.youtube.com/embed/YUlealKW90I'}
+            title={product?.name[language]}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -26,15 +34,11 @@ export const Gallery: React.FC = () => {
 
         <div className={styles['carousel-container']}>
           <Carousel>
-            <div className={styles['carousel-slide']}>
-              <img src={card1} />
-            </div>
-            <div className={styles['carousel-slide']}>
-              <img src={card2} />
-            </div>
-            <div className={styles['carousel-slide']}>
-              <img src={card3} />
-            </div>
+            {product?.gallery?.map((image, i) => (
+              <div className={styles['carousel-slide']} key={i}>
+                <img src={image?.url} alt={'Carrosel'} />
+              </div>
+            ))}
           </Carousel>
         </div>
       </section>

@@ -42,7 +42,7 @@ export const App: React.FC = () => {
       <HomePage product={product} />
       <Description product={product} />
       <TechnicalSpecifications product={product} />
-      <Gallery />
+      <Gallery product={product} />
     </>
   );
 };
