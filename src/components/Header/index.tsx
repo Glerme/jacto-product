@@ -19,7 +19,12 @@ export const Header: React.FC<HeaderProps> = ({ isMenuOpen, onToggle }) => {
       <nav className={styles['navbar-container']}>
         <div className={styles['logo-container']}>
           <img src={logo} alt="Jacto" title="Jacto" />
-          <FiMenu size={30} color={'#ec6608'} onClick={onToggle} />
+          <FiMenu
+            size={30}
+            color={'#ec6608'}
+            onClick={onToggle}
+            className={styles['menu-button']}
+          />
         </div>
 
         <header className={styles['header-container']}>

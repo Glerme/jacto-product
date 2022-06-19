@@ -40,6 +40,18 @@
   }
 }
 
+.menu-button {
+  visibility: visible;
+  opacity: 1;
+
+  @include breakpoints.and-up(md) {
+    visibility: hidden;
+    opacity: 0;
+
+    height: 0;
+  }
+}
+
 .menu-container {
   display: flex;
   align-items: center;
@@ -86,6 +98,12 @@
 
     &:last-child {
       margin-left: auto;
+    }
+
+    @include breakpoints.and-up(md) {
+      &:first-child {
+        margin-left: auto;
+      }
     }
 
     & > a {

@@ -22,7 +22,7 @@ export const App: React.FC = () => {
     return <Loading />;
   }
 
-  if (true) {
+  if (errors) {
     return <div>Error</div>;
   }
 
