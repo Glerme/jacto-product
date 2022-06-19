@@ -12,5 +12,6 @@ export default {
     'Information About the Product': 'Informações sobre o produto',
     'Technical Specifications': 'Especificações técnicas',
     Gallery: 'Galeria',
+    Error: 'Ops... Ocorreu um erro ao carregar a página',
   },
 };

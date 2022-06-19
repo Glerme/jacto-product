@@ -7,11 +7,13 @@ import { Description } from 'views/Description';
 import { TechnicalSpecifications } from 'views/TechnicalSpecifications';
 import { Gallery } from 'views/Gallery';
 
+import { useFetch } from 'hooks/useFetch';
+
 import { Header } from 'components/Header';
+import { Loading } from 'components/Loading';
+import { ErrorComponent } from 'components/ErrorComponent';
 
 import './styles/global.scss';
-import { useFetch } from 'hooks/useFetch';
-import { Loading } from 'components/Loading';
 
 export const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,7 +25,7 @@ export const App: React.FC = () => {
   }
 
   if (errors) {
-    return <div>Error</div>;
+    return <ErrorComponent />;
   }
 
   return (
