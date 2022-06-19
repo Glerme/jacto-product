@@ -11,26 +11,19 @@ import { Header } from 'components/Header';
 
 import './styles/global.scss';
 import { useFetch } from 'hooks/useFetch';
+import { Loading } from 'components/Loading';
 
 export const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const { data: product, loading } = useFetch<Product>('/product');
+  const { data: product, loading, errors } = useFetch<Product>('/product');
 
   if (loading) {
-    return (
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '100%',
-          height: '100%',
-        }}
-      >
-        <h1>Loading...</h1>
-      </div>
-    );
+    return <Loading />;
+  }
+
+  if (true) {
+    return <div>Error</div>;
   }
 
   return (
