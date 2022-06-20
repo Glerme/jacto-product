@@ -14,6 +14,7 @@ import { Loading } from 'components/Loading';
 import { ErrorComponent } from 'components/ErrorComponent';
 
 import './styles/global.scss';
+import { Footer } from 'components/Footer';
 
 export const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,6 +39,7 @@ export const App: React.FC = () => {
       <Description product={product} />
       <TechnicalSpecifications product={product} />
       <Gallery product={product} />
+      <Footer />
     </>
   );
 };

@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use 'styles/colors.scss';
+@use 'styles/breakpoints.scss';
+@use 'styles/typography.scss';
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 0.2rem;
+
+  padding: 1rem;
+
+  background-color: colors.$primary;
+  color: colors.$white;
+
+  font-size: map.get(typography.$sizes, 'b4');
+  font-weight: map.get(typography.$weights, 'b4');
+
+  a {
+    color: colors.$black;
+    text-decoration: underline;
+  }
+}

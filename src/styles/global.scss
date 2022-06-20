@@ -48,12 +48,10 @@ html,
 body,
 div#root {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 html {
   font-size: 16px;
-  overflow-x: hidden;
 
   @include breakpoints.and-down(sm) {
     font-size: 87.5%;
@@ -72,7 +70,6 @@ body {
   background: #f2eeeb;
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 input,
