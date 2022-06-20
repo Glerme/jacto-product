@@ -48,7 +48,7 @@ export const useFetch = <T = Record<string, any>>(
 
   useEffect(() => {
     fetchData(url, options);
-  }, []);
+  }, [url, options]);
 
   return {
     loading,
